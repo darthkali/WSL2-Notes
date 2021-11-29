@@ -1,0 +1,13 @@
+Check your path, echo $PATH. WSL2 normally imports Windows path there. To fix this create file /etc/wsl.conf in WSL2:
+
+[interop]
+appendWindowsPath = false
+Then restart WSL2 with wsl --shutdown
+Then check your path is shorter now and doesn't include any Windows dependencies:
+echo $PATH
+
+Worked for me.
+
+Also see How to remove Windows paths from WSL path
+
+https://github.com/pyenv/pyenv/issues/1725
